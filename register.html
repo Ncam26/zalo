@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="1.js" >
+<head>
+    <title>Trang đăng ký</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #560ad0;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('body').on('click','input[type="submit"]', function() {
+                var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+                var mobile = $('#mobile').val();
+                if(mobile !==''){
+                    if (vnf_regex.test(mobile) == false) 
+                    {
+                        alert('Số điện thoại của bạn không đúng định dạng!');
+                    }
+                    else{
+                        alert('Số điện thoại của bạn hợp lệ!');
+                    }
+                }
+                else{
+                    alert('Bạn chưa điền số điện thoại!');
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Đăng ký</h2>
+        <form action="login/login.html">
+            <input id="mobile" type="text" name="tel" placeholder="Số điện  thoại" >
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Mật khẩu">
+            <input type="submit" value="Đăng ký">
+        </form>
+    </div>
+</body>
+</html>
